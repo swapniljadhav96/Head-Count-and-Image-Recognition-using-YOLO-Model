@@ -1,0 +1,71 @@
+{% extends 'base.html' %}
+
+{% block title %}Login Page{% endblock %}
+{% block content %}
+    <style>
+        
+        form {
+            max-width: 300px;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            background-color: #004855;
+            box-shadow: 0 0 10px rgba(255, 255, 255, 0.493);
+            margin: auto; /* Center the form horizontally */
+            display: block; /* Ensure the form is treated as a block element */
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            color: white;
+        }
+
+        input {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 16px;
+            box-sizing: border-box;
+            color: rgb(0, 0, 0);
+        }
+
+        input[type="submit"] {
+            background-color: #4caf50;
+            color: rgb(0, 0, 0);
+            cursor: pointer;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+
+        #createAccount {
+            margin-top: 10px;
+            color: white;
+        }
+    </style>
+<br>
+<br>
+<br>
+    {% if messages %}
+        <div style="background-color: #fca5a5; border-color: #fdc1bf; color: #ff0000; padding: 15px; margin-bottom: 20px; max-width: 300px; margin: auto; display: block;">
+            {% for message in messages %}
+                {{ message }}
+            {% endfor %}
+        </div>
+    {% endif %}
+    <h2 style = "color: white;">User Login</h2>
+    <form id="loginForm" method="POST" action = "/logout/">
+        {% csrf_token %}
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username" required>
+
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required>
+
+        <input type="submit" value="Login">
+
+        <p id="createAccount">Don't have an account? <a href="/create">Create one</a>.</p>
+    </form>
+
+{% endblock %}

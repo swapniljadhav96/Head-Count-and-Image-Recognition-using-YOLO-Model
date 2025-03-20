@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block title %}Login Page{% endblock %}
+
+
+{% block messages %}
+    {% if messages %}
+        <div style="background-color: #d4edda; border-color: #c3e6cb; color: #155724; padding: 15px; margin-bottom: 20px;">
+            {% for message in messages %}
+                {{ message }}
+            {% endfor %}
+        </div>
+    {% endif %}
+{% endblock %}
+
+{% block content %}
+<style>
+    #upload-btn {
+            background-color: #28a745;
+            color: white;
+        }
+</style>
+<h2 style = "color: white; margin-top: 20px;">Realtime HeadCount and Face detection</h2>
+<div style = "align-items: center; margin-top: 100px; color: white;">
+    <a id="upload-btn" class="btn button" href="startdetection">
+        Start Realtime Detection
+    </a>
+</div>
+{% endblock %}
+
